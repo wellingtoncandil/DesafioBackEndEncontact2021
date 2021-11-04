@@ -18,9 +18,10 @@ O foco deste teste é a implementação dos recursos necessários para atender o
 		- Caso dê erro na importação de um registro, não deve impactar a importação dos demais.
 		- Só deve ser possível cadastrar um contato vinculado a uma empresa (caso seja informada) e agenda pré-cadastrada.
 		- O contato não precisa estar vínculado a uma empresa.
-		- O contrato precisa estar vínculado a uma agenda.
+		- O contato precisa estar vínculado a uma agenda.
 	- Poder pesquisar contatos.
-		- Por qualquer campo do contato (incluído o nome da empresa)
+		- Por qualquer campo do contato (incluído o nome da empresa).
+		- A pesquisa deve ser paginada (Fique a vontade para utilizar qualquer estratégia).
 
 	
 ## O repositório
