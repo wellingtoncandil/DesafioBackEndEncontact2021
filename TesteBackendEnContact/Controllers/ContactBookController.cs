@@ -19,6 +19,12 @@ namespace TesteBackendEnContact.Controllers
             _logger = logger;
         }
 
+        [HttpPut]
+        public async Task<bool> Put(ContactBook contactBook, [FromServices] IContactBookRepository contactBookRepository)
+        {
+            return await contactBookRepository.EditAsync(contactBook);
+        }
+
         [HttpPost]
         public async Task<IContactBook> Post(ContactBook contactBook, [FromServices] IContactBookRepository contactBookRepository)
         {
@@ -26,9 +32,9 @@ namespace TesteBackendEnContact.Controllers
         }
 
         [HttpDelete]
-        public async Task Delete(int id, [FromServices] IContactBookRepository contactBookRepository)
+        public async Task<int> Delete(int id, [FromServices] IContactBookRepository contactBookRepository)
         {
-            await contactBookRepository.DeleteAsync(id);
+            return await contactBookRepository.DeleteAsync(id);
         }
 
         [HttpGet]

@@ -19,6 +19,12 @@ namespace TesteBackendEnContact.Controllers
             _logger = logger;
         }
 
+        [HttpPut]
+        public async Task<bool> EditAsync (SaveCompanyRequest company, [FromServices] ICompanyRepository companyRepository)
+        {
+            return await companyRepository.EditAsync(company.ToCompany());
+        }
+
         [HttpPost]
         public async Task<ActionResult<ICompany>> Post(SaveCompanyRequest company, [FromServices] ICompanyRepository companyRepository)
         {
@@ -26,9 +32,9 @@ namespace TesteBackendEnContact.Controllers
         }
 
         [HttpDelete]
-        public async Task Delete(int id, [FromServices] ICompanyRepository companyRepository)
+        public async Task<int> Delete(int id, [FromServices] ICompanyRepository companyRepository)
         {
-            await companyRepository.DeleteAsync(id);
+            return await companyRepository.DeleteAsync(id);
         }
 
         [HttpGet]
